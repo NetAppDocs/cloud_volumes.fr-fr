@@ -1,0 +1,203 @@
+---
+sidebar: sidebar 
+permalink: aws/task_creating_cloud_volumes_for_aws.html 
+keywords: Cloud Volumes Service for AWS, volumes, snapshots, service levels, allocated capacity, export policy, NFS, SMB, Active Directory, AD, Windows 
+summary: La création de volumes cloud à partir du site NetApp Cloud Orchestrator. 
+---
+= Création d'un volume cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La création de volumes cloud à partir du site NetApp Cloud Orchestrator.
+
+
+
+== Prérequis
+
+Votre environnement AWS doit répondre à certaines exigences avant de créer votre premier volume cloud. Pour chaque région AWS dans laquelle vous prévoyez de déployer des volumes cloud, vous devez disposer d'un :
+
+* Cloud privé virtuel (VPC)
+* VGW (Virtual Private Gateway) connecté à votre VPC
+* Sous-réseau pour le VPC
+* Les routes définies incluant le réseau sur lequel les volumes cloud seront exécutés
+* En option, une passerelle Direct Connect
+
+
+Vous devez disposer des informations suivantes lors de la création du premier volume cloud dans une région :
+
+* *ID de compte AWS* : identifiant de compte Amazon à 12 chiffres sans tirets.
+* *Bloc de routage inter-domaines sans classe (CIDR)* : un bloc CIDR IPv4 non utilisé. Le préfixe réseau doit être compris entre /16 et /28 et doit également se trouver dans les plages réservées aux réseaux privés (RFC 1918). Ne choisissez pas un réseau qui chevauche vos allocations VPC CIDR.
+* Vous devez avoir sélectionné la région dans laquelle vous souhaitez utiliser le service. Voir link:task_selecting_region.html["Sélection de la région"].
+
+
+Si vous n'avez pas configuré les composants de mise en réseau AWS requis, consultez le link:media/cvs_aws_account_setup.pdf["Configuration de compte avec NetApp Cloud Volumes Service pour AWS"^] pour plus d'informations.
+
+*Remarque :* lorsque vous prévoyez de créer un volume SMB, vous devez disposer d'un serveur Windows Active Directory disponible auquel vous pouvez vous connecter. Vous entrez ces informations lors de la création du volume. Assurez-vous également que l'utilisateur administrateur peut créer un compte machine dans le chemin d'unité organisationnelle spécifié.
+
+
+
+== Entrez les détails du volume
+
+Renseignez les champs en haut de la page Créer un volume pour définir le nom du volume, la taille, le niveau de service, etc.
+
+. Une fois que vous êtes connecté à l' https://cds-aws-bundles.netapp.com/storage/volumes["NetApp Cloud Orchestrator"^] le site avec l'adresse e-mail que vous avez fournie pendant votre abonnement, et vous avez link:task_selecting_region.html["sélectionnez la région"], Cliquez sur le bouton *Créer un nouveau volume*.
++
+image::diagram_create_volume_1.png[Page Créer un volume]
+
+. Dans la page Créer un volume, sélectionnez *NFS*, *SMB* ou *Double protocole* comme protocole pour le volume que vous souhaitez créer.
+. Dans le champ *Nom*, indiquez le nom à utiliser pour le volume.
+. Dans le champ *Region*, sélectionnez la région AWS dans laquelle vous souhaitez créer le volume. Cette région doit correspondre à la région que vous avez configurée sur AWS.
+. Dans le champ *Timezone*, sélectionnez votre fuseau horaire.
+. Dans le champ *chemin du volume*, spécifiez le chemin que vous souhaitez utiliser ou accepter le chemin généré automatiquement.
+. Dans le champ *niveau de service*, sélectionnez le niveau de performance du volume : *Standard*, *Premium* ou *Extreme*.
++
+Voir link:reference_selecting_service_level_and_quota.html#service-levels["Sélection du niveau de service"] pour plus d'informations.
+
+. Dans le champ *capacité allouée*, sélectionnez la capacité requise. Notez que le nombre d'inodes disponibles dépend de la capacité allouée.
++
+Voir link:reference_selecting_service_level_and_quota.html#allocated-capacity["Sélection de la capacité allouée"] pour plus d'informations.
+
+. Dans le champ *NFS version*, sélectionnez *NFS v3*, *NFSv4.1* ou *les deux* selon vos besoins.
+. Si vous avez sélectionné Dual-Protocol, vous pouvez sélectionner le style de sécurité dans le champ *Security style* en sélectionnant *NTFS* ou *UNIX* dans le menu déroulant.
++
+Les styles de sécurité affectent le type d'autorisation de fichier utilisé et la manière dont les autorisations peuvent être modifiées.
+
++
+** UNIX utilise les bits du mode NFSv3 et seuls les clients NFS peuvent modifier les autorisations.
+** NTFS utilise les listes de contrôle d'accès NTFS et seuls les clients SMB peuvent modifier les autorisations.
+
+
+. Dans le champ *Afficher le répertoire d'instantanés*, conservez la valeur par défaut dans laquelle vous pouvez afficher le répertoire d'instantanés de ce volume ou décochez la case pour masquer la liste des copies Snapshot.
+
+
+
+
+== Entrer les détails du réseau (paramètre unique par région AWS)
+
+S'il s'agit de la première fois que vous avez créé un volume cloud dans cette région AWS, la section *réseau* s'affiche pour vous permettre de connecter votre compte Cloud volumes à votre compte AWS :
+
+. Dans le champ *CIDR (IPv4)*, saisissez la plage IPv4 souhaitée pour la région. Le préfixe réseau doit être compris entre /16 et /28. Le réseau doit également se trouver dans les plages réservées aux réseaux privés (RFC 1918). Ne choisissez pas un réseau qui chevauche vos allocations VPC CIDR.
+. Dans le champ *ID de compte AWS*, saisissez votre identifiant de compte Amazon à 12 chiffres sans tirets.
++
+image::diagram_create_volume_network.png[Configurez les paramètres réseau]
+
+
+
+
+
+== Entrer les règles d'export-policy (facultatif)
+
+Si vous avez sélectionné NFS ou double protocole, vous pouvez créer une export policy dans la section *Export policy* pour identifier les clients qui peuvent accéder au volume :
+
+. Dans le champ *clients autorisés*, spécifiez les clients autorisés en utilisant une adresse IP ou un routage inter-domaines sans classe (CIDR).
+. Dans le champ *accès*, sélectionnez *lecture et écriture* ou *lecture seule*.
+. Dans le champ *protocoles*, sélectionnez le protocole (ou les protocoles si le volume autorise à la fois l'accès NFS v3 et NFS v4.1) utilisé pour l'accès utilisateur.
++
+image::diagram_create_volume_4.png[Ajouter une règle d'export-policy]
+
+
+
+Cliquez sur *+ Ajouter règle de stratégie d'exportation* si vous souhaitez définir des règles de stratégie d'exportation supplémentaires.
+
+
+
+== Permettre le chiffrement des données (facultatif)
+
+. Si vous avez sélectionné SMB ou Dual-Protocol, vous pouvez activer le chiffrement de session SMB en cochant la case du champ *Activer le chiffrement de protocole SMB3*.
++
+*Remarque :* n'activez pas le chiffrement si les clients SMB 2.1 doivent monter le volume.
+
+
+
+
+
+== Intégration du volume à un serveur Active Directory (SMB et Dual Protocol)
+
+Si vous avez sélectionné SMB ou Double protocole, vous pouvez choisir d'intégrer le volume à un serveur Windows Active Directory ou à un serveur Microsoft AD géré par AWS dans la section *Active Directory*.
+
+Dans le champ *Paramètres disponibles*, sélectionnez un serveur Active Directory existant ou ajoutez un nouveau serveur AD.
+
+Pour configurer une connexion à un nouveau serveur AD :
+
+. Dans le champ *DNS Server*, entrez les adresses IP du ou des serveurs DNS. Utilisez une virgule pour séparer les adresses IP lorsque vous faites référence à plusieurs serveurs, par exemple 172.31.25.223, 172.31.2.74.
+. Dans le champ *domaine*, entrez le domaine du partage SMB.
++
+Si vous utilisez AWS Managed Microsoft AD, utilisez la valeur du champ « Directory DNS name ».
+
+. Dans le champ *SMB Server NetBIOS*, entrez un nom NetBIOS pour le serveur SMB qui sera créé.
+. Dans le champ *unité organisationnelle*, entrez "CN=ordinateurs" pour les connexions à votre propre serveur Windows Active Directory.
++
+Lorsque vous utilisez AWS Managed Microsoft AD, l'unité organisationnelle doit être saisie au format « ou=<NetBIOS_name> ». Par exemple, *ou=AWSmanagedAD*.
+
++
+Pour utiliser une UO imbriquée, vous devez d'abord appeler l'UO de niveau le plus bas jusqu'à l'UO de niveau le plus élevé. PAR EXEMPLE : *OU=THIRDLEVEL,OU=SECONDLEVEL,OU=FISTERLEVEL*.
+
+. Dans le champ *Nom d'utilisateur*, entrez un nom d'utilisateur pour votre serveur Active Directory.
++
+Vous pouvez utiliser n'importe quel nom d'utilisateur autorisé à créer des comptes machine dans le domaine Active Directory auquel vous rejoignez le serveur SMB.
+
+. Dans le champ *Mot de passe*, saisissez le mot de passe du nom d'utilisateur AD que vous avez spécifié.
++
+image::diagram_create_volume_ad.png[Active Directory]
+
++
+Voir https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/designing-the-site-topology["Conception d'une topologie de site pour les services de domaine Active Directory"^] Pour obtenir des conseils sur la conception d'une implémentation Microsoft AD optimale.
+
++
+Voir la link:media/cvs_aws_ds_smb_setup.pdf["Configuration du service AWS Directory avec NetApp Cloud Volumes Service pour AWS"^] Guide pour obtenir des instructions détaillées sur l'utilisation de Microsoft AD géré par AWS.
+
++
+
+IMPORTANT: Suivez les recommandations relatives aux paramètres des groupes de sécurité AWS pour permettre l'intégration correcte des volumes cloud avec les serveurs Windows Active Directory. Voir link:reference_security_groups_windows_ad_servers.html["Paramètres des groupes de sécurité AWS pour les serveurs Windows AD"] pour en savoir plus.
+
++
+*Note:* les utilisateurs UNIX qui montant le volume à l'aide de NFS seront authentifiés comme utilisateur Windows "root" pour UNIX root et "pcuser" pour tous les autres utilisateurs. Lors de l'utilisation du protocole NFS, assurez-vous que ces comptes utilisateurs existent dans Active Directory avant de monter un volume à double protocole.
+
+
+
+
+
+== Création d'une règle Snapshot (facultatif)
+
+Si vous souhaitez créer une stratégie de snapshot pour ce volume, entrez les détails dans la section *politique de snapshot* :
+
+. Sélectionnez la fréquence d'instantanés : *horaire*, *quotidien*, *hebdomadaire* ou *mensuel*.
+. Sélectionnez le nombre d'instantanés à conserver.
+. Sélectionnez l'heure à laquelle l'instantané doit être effectué.
++
+image::diagram_snapshot_policy_1.png[Règle Snapshot]
+
+
+
+Vous pouvez créer d'autres stratégies de snapshot en répétant les étapes ci-dessus, ou en sélectionnant l'onglet snapshots dans la zone de navigation de gauche.
+
+
+
+== Créer le volume
+
+. Faites défiler la page jusqu'en bas et cliquez sur *Créer un volume*.
++
+Si vous avez déjà créé un volume cloud dans cette région, le nouveau volume apparaît dans la page volumes.
+
++
+S'il s'agit du premier volume cloud que vous avez créé dans cette région AWS et que vous avez saisi les informations de mise en réseau dans la section réseau de cette page, une boîte de dialogue de progression indique les étapes à suivre pour connecter le volume aux interfaces AWS.
+
++
+image:diagram_create_volume_interfaces_dialog.png["Boîte de dialogue accepter les interfaces virtuelles"]
+
+. Acceptez les interfaces virtuelles comme décrit à la section 6.4 de link:media/cvs_aws_account_setup.pdf#page=21["Configuration de compte avec NetApp Cloud Volumes Service pour AWS"^] guide. Vous devez effectuer cette tâche dans un délai de 10 minutes pour que le système se trouve à court d'activité.
++
+Si les interfaces ne s'affichent pas dans les 10 minutes, il peut y avoir un problème de configuration, auquel cas vous devez contacter le service d'assistance.
+
++
+Une fois les interfaces et les autres composants réseau créés, le volume que vous avez créé apparaît dans la page volumes et le champ actions est répertorié comme disponible.image:diagram_create_volume_3.png["Un volume est créé"]
+
+
+
+Passez à link:task_mounting_cloud_volumes_for_aws.html["Montez un volume cloud"].

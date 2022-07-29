@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: aws/task_creating_cloud_sync_data_broker.html 
+keywords: Cloud Volumes Service for AWS, Cloud Sync, data brokers, sync relationships 
+summary: NetApp Cloud Sync est intégré avec NetApp Cloud Volumes Service pour AWS afin de synchroniser rapidement les données depuis ou vers un volume cloud. Un courtier en données Cloud Sync vous permet de créer une relation Cloud Sync pour la synchronisation des données. 
+---
+= Création d'un courtier de données Cloud Sync
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NetApp Cloud Sync est intégré avec NetApp Cloud Volumes Service pour AWS afin de permettre la synchronisation rapide des données sur NFS depuis ou vers un volume cloud. Un courtier en données Cloud Sync vous permet de créer une relation Cloud Sync pour la synchronisation des données.
+
+Si vous disposez déjà d'un courtier en données Cloud Sync dans le même cloud privé virtuel AWS (VPC) que vous utilisez pour votre compte Cloud volumes, vous pouvez ignorer cette tâche.
+
+https://docs.netapp.com/us-en/cloudsync/["Documentation NetApp Cloud Sync"^]
+
+.Étapes
+. Accédez à la page Sync ou à l'onglet Sync d'un volume de la page volumes.
+. Créez un courtier de données en cliquant sur *Créer un courtier de données*.
+. Fournissez des informations pour les champs suivants :
++
+** *Nom*
++
+Attribuez un nom au courtier de données.
+
+** *Type*
++
+Sélectionnez AWS.
+
+** *Région*
++
+Sélectionnez une région disponible.
+
+** *Clé API*
++
+Indiquez la clé d'accès pour votre compte AWS.
+
+** *Clé secrète*
++
+Fournissez la clé secrète pour votre compte AWS.
+
+** *Keyphair*
++
+Sélectionnez un type de clé disponible.
+
++
+Le clavier sera mis à jour après avoir saisi des clés valides.
+
+** *VPC*
++
+Sélectionnez le VPC connecté à votre compte Cloud volumes.
+
+** *Sous-réseau*
++
+Sélectionnez un sous-réseau disponible à utiliser pour le courtier de données.
+
++
+image::diagram_creating_cloud_sync_data_broker.png[Création d'un courtier de données Cloud Sync]
+
+
+
+. Cliquez sur *Créer un courtier de données* pour lancer le processus de création du courtier de données.
++
+La création d'un courtier en données prend quelques minutes. Une fois le courtier de données créé, celui-ci est marqué d'un point vert pour indiquer qu'il est prêt.
+
+
+
+Passez à link:task_creating_cloud_sync_relationship.html["Création d'une relation Cloud Sync"].

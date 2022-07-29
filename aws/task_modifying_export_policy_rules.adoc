@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: aws/task_modifying_export_policy_rules.html 
+keywords: Cloud Volumes Service for AWS, export policy rules, client access, access types 
+summary: Vous pouvez modifier la règle export policy pour un volume si nécessaire. 
+---
+= Modification d'une règle d'export-policy
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Vous pouvez modifier la règle export policy pour un volume si nécessaire.
+
+.Étapes
+. Cliquez sur le nom du volume, puis sélectionnez *Exporter la stratégie*.
+. Pour modifier une règle d'export-policy existante, modifiez les champs suivants si nécessaire :
++
+** *Client autorisé*
+** *Type d'accès*
+
+
+. Cliquez sur *Enregistrer les modifications*.
+

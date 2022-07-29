@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: aws/reference_whats_new_cloud_volumes_aws.html 
+keywords: 'Cloud Volumes Service for AWS, what"s new, features, enhancements' 
+summary: NetApp met régulièrement à jour Cloud Volumes Service pour AWS afin de vous apporter de nouvelles fonctionnalités et améliorations. 
+---
+= Nouveautés de Cloud Volumes Service pour AWS
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NetApp met régulièrement à jour Cloud Volumes Service pour AWS afin de vous apporter de nouvelles fonctionnalités et améliorations.
+
+
+
+== Février 2021
+
+* Une nouvelle API Cloud volumes (`PerformanceMetrics`) Est à présent disponible pour récupérer les statistiques de performances, y compris les IOPS, la bande passante et la latence. Pour en savoir plus, voir link:reference_cloud_volume_apis.html["API Cloud volumes"^].
+
+
+
+
+== Juillet 2020
+
+* Le Cloud Volumes Service prend désormais en charge des plages de réseaux privés RFC 1918 plus larges entre /16 et /28. Auparavant, uniquement les plages /28 si elles sont prises en charge.
+* La fonctionnalité « Synchroniser » s'intègre désormais directement avec l'interface utilisateur de Cloud Sync pour améliorer les fonctionnalités.
+* Il est possible de convertir les volumes en et à partir de NSFv3, NFSv4.1, ainsi que NFS v3 et NFS v4.1 par le biais d'appels d'API.
+* Les exemples d'API et les exemples de scripts Python ont été mis à jour vers l'API v2. link:reference_cloud_volume_apis.html["Voir les API Cloud volumes"].
+* Les ACL sont désormais activées pour les volumes NFSv4.1.
+* Cloud Volumes Service est désormais certifié avec SOC 2 de type 1.
+* Le Cloud Volumes Service est maintenant disponible à Singapour (ap-sud-est-1).
+
+
+
+
+== Mars 2020
+
+* Cloud Volumes Service supporte à présent une taille d'E/S maximale de 1 Mio pour les montages NFS v3 et NFS v4.1. Auparavant, la taille d'opération d'entrée/sortie maximale était de 64 Kio. L'augmentation de la taille d'E/S peut améliorer les performances de certaines charges de travail. Pour augmenter la taille des E/S, utilisez les options de montage « rsize » et/ou « wsize », par exemple :
+`mount -o nfsvers=4.1,rsize=1048576,wsize=1048576 172.25.0.4:/vol1 /mnt/cv`
+
+
+
+
+== Février 2020
+
+* Cloud Volumes Service est désormais disponible sous forme d'abonnement avec compteur (paiement à l'utilisation) sur AWS Marketplace. Pour plus d'informations, consultez la liste Marketplace : https://aws.amazon.com/marketplace/pp/B0848MXK74[]Notez que les abonnements mensuels et annuels d'origine sont toujours disponibles.
+
+
+
+
+== Janvier 2020
+
+* Cloud Volumes Service prend désormais en charge le multicanal SMB qui utilise simultanément plusieurs connexions réseau pour accroître les performances. Le multicanal est activé par défaut sur les clients Windows, mais l'instance EC2 utilise une carte réseau prenant en charge RSS (Receive Side Scaling).
+* La restauration d'un volume depuis un snapshot est désormais disponible depuis l'interface utilisateur de Cloud Volumes Service. Cela vous permet de rétablir des volumes à un point dans le temps, sans qu'aucun remontage ne soit nécessaire pour les clients. Voir link:task_reverting_volume_to_snapshot.html["Rétablissement d'un volume depuis un snapshot"] pour plus d'informations.
+

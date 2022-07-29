@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: aws/task_disabling_snapshot_policy.html 
+keywords: Cloud Volumes Service for AWS, snapshot policies 
+summary: Si vous souhaitez empêcher la création de snapshots pendant une courte période tout en conservant vos paramètres de stratégie de snapshot, vous pouvez désactiver la stratégie de snapshots. 
+---
+= Désactivation d'une stratégie de snapshot
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Vous pouvez désactiver une stratégie de snapshot pour empêcher la création de snapshots pendant une courte période tout en conservant les paramètres de votre stratégie de snapshot.
+
+.Étapes
+. Sur la page volumes, cliquez sur le nom du volume, puis sélectionnez *règle Snapshot*.
+. Cliquez sur le bouton *Enabled* sur *OFF* pour désactiver la création de snapshots.
++
+image:diagram_snapshot_policy_button.png["Bouton d'activation de la stratégie Snapshot"]
+
+. Cliquez sur *Enregistrer les modifications*.
+
+
+Lorsque vous souhaitez réactiver la stratégie d'instantané, cliquez sur le bouton *Enabled* sur *ON* et cliquez sur *Save Changes*.

@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: aws/task_creating_on_demand_snapshots.html 
+keywords: Cloud Volumes Service for AWS, snapshots, on-demand 
+summary: 'Vous pouvez créer un snapshot à la demande d"un volume cloud à partir de la page volumes ou copies Snapshot.' 
+---
+= Création d'un snapshot à la demande pour un volume cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez créer un snapshot à la demande d'un volume cloud à partir de la page volumes ou copies Snapshot.
+
+
+
+== Création de snapshots à partir de la page volumes
+
+.Étapes
+. Cliquez sur le nom du volume, sélectionnez *snapshots*, puis cliquez sur *+ Créer un nouvel instantané*.
+. Entrez un nom pour le snapshot ou utilisez le nom généré automatiquement.
+. Sélectionnez le nom du volume, puis, dans la liste déroulante, sélectionnez le volume pour lequel vous souhaitez créer un snapshot.
+. Cliquez sur *Créer un instantané*.
+
+
+Le snapshot créé s'affiche.
+
+
+
+== Création de snapshots à partir de la page snapshots
+
+.Étapes
+. Cliquez sur *+ Créer un nouvel instantané*.
+. Entrez un nom pour le snapshot ou utilisez le nom généré automatiquement.
+. Dans la liste déroulante, sélectionnez le volume pour lequel vous souhaitez créer un snapshot.
+. Cliquez sur *Créer un instantané*.
+
+
+Le snapshot créé est désormais répertorié.

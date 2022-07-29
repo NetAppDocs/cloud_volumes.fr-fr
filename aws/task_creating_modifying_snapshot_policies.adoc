@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: aws/task_creating_modifying_snapshot_policies.html 
+keywords: Cloud Volumes Service for AWS, snapshot policies 
+summary: Vous pouvez créer ou modifier une règle Snapshot si nécessaire pour un volume cloud. 
+---
+= Création ou modification d'une règle de snapshot
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Vous pouvez créer ou modifier une règle Snapshot si nécessaire pour un volume cloud.
+
+.Étapes
+. Sur la page volumes, cliquez sur le nom du volume, puis sélectionnez *règle Snapshot*.
+. Sélectionnez *horaire*, *quotidien*, *hebdomadaire* ou *mensuel* pour spécifier la fréquence de création des instantanés.
++
+Les stratégies configurées sont marquées d'un point vert. Les stratégies non définies sont marquées d'un point rouge.
+
+. Sélectionnez le nombre de snapshots que vous souhaitez conserver.
+. Sélectionnez le jour, l'heure et la minute où l'instantané doit être pris.
+. Si vous souhaitez créer des instantanés supplémentaires à différentes fréquences, par exemple, des instantanés mensuels et quotidiens, répétez les étapes 2 à 4.
++
+image:diagram_snapshot_policy_modify.png["Règle Snapshot"]
+
+. Si le bouton *Enabled* n'est pas déjà défini sur *ON*, cliquez sur le bouton pour activer ou réactiver la stratégie.
+. Cliquez sur *Enregistrer les modifications*.
+

@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: aws/task_mounting_cloud_volumes_for_aws.html 
+keywords: Cloud Volumes Service for AWS, mount targets, Elastic Compute Cloud, EC2, NFSv3, NFSv4.1, Linux, UNIX, SMB, Windows 
+summary: Vous pouvez monter un volume cloud sur votre instance AWS. Les volumes cloud prennent actuellement en charge NFSv3 et NFSv4.1 pour les clients Linux et UNIX, ainsi que SMB 2.1, 3.0 et 3.1.1 pour les clients Windows. 
+---
+= Montez un volume cloud
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Vous pouvez monter un volume cloud sur votre instance AWS. Les volumes cloud prennent actuellement en charge NFSv3 et NFSv4.1 pour les clients Linux et UNIX, ainsi que SMB 2.1, 3.0 et 3.1.1 pour les clients Windows.
+
+*Remarque :* Veuillez utiliser le protocole/dialecte mis en évidence pris en charge par votre client.
+
+.Étapes
+. Obtenez des instructions de montage pour le volume que vous avez créé en cliquant sur le point d'interrogation bleu (?) À la fin du champ Exporter les chemins, en regard du nom du volume.
++
+Lorsque vous placez le pointeur de la souris sur le point d'interrogation, il affiche *Afficher les instructions de montage*.
+
++
+image:diagram_mount_1.png["Affiche les instructions de montage"]
+
+. Cliquez sur le point d'interrogation pour afficher les instructions de montage.
++
+*Exemple NFS:*
+
++
+image:diagram_mount_instructions_nfs.png["Instructions de montage pour NFS"]
+
++
+La taille d'E/S maximale définie par le `rsize` et `wsize` les options sont 1048576. cependant, la version 65536 est la valeur par défaut recommandée pour la plupart des cas d'utilisation.
+
++
+Notez que les clients Linux seront par défaut sur NFSv4.1 à moins que la version soit spécifiée.
+
++
+*Exemple SMB:*
+
++
+image:diagram_mount_instructions_smb.png["Instructions de montage pour SMB"]
+
+. Connectez-vous à votre instance Amazon Elastic Compute Cloud (EC2) à l'aide d'un client SSH ou RDP, puis suivez les instructions de montage pour votre instance.
++
+Après avoir terminé les étapes des instructions de montage, vous avez correctement monté le volume cloud sur votre instance AWS.
+
+

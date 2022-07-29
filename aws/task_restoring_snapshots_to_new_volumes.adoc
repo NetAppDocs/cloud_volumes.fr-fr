@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: aws/task_restoring_snapshots_to_new_volumes.html 
+keywords: Cloud Volumes Service for AWS, snapshots, restore 
+summary: Vous pouvez restaurer un snapshot vers un nouveau volume si nécessaire. 
+---
+= Restauration d'un snapshot sur un nouveau volume
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Vous pouvez restaurer un snapshot vers un nouveau volume si nécessaire.
+
+.Étapes
+. Sur la page snapshots ou dans la section snapshots de Détails du volume, sélectionnez l'instantané à restaurer, cliquez sur *Available*, puis sélectionnez *Restore to Volume*.
+. Dans la boîte de dialogue Créer un volume, entrez un nom pour le nouveau volume et modifiez d'autres paramètres si nécessaire.
++
+link:task_creating_cloud_volumes_for_aws.html["Création d'un volume cloud"]
+
+. Vérifiez les paramètres, puis cliquez sur *Créer un volume* pour terminer la restauration de l'instantané sur le nouveau volume.
+

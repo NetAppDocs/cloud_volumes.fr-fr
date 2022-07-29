@@ -1,0 +1,85 @@
+---
+settings:
+  name: Cloud Volumes Service
+  platform: ''
+  rss_page: reference_whats_new_cloud_volumes_aws.html
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: fr-fr,us-en,ja-jp,zh-cn,zh-tw,ko-kr,de-de
+sidebar:
+  entries:
+  - title: Documents associés à Cloud Volumes Service pour AWS
+    url: "/aws/index.html"
+  - title: Notes de mise à jour
+    entries:
+    - title: Quoi de neuf
+      url: "/aws/reference_whats_new_cloud_volumes_aws.html"
+    - title: Problèmes connus
+      url: "/aws/reference_known_issues.html"
+  - title: Pour commencer
+    entries:
+    - title: Prérequis
+      url: "/aws/concept_overview.html"
+    - title: Instructions de démarrage rapide
+      url: "/aws/task_quick_start.html"
+    - title: Activation du support et accès au support
+      url: "/aws/task_activating_support_entitlement.html"
+    - title: Sélection de la région
+      url: "/aws/task_selecting_region.html"
+  - title: Gestion des volumes cloud
+    entries:
+    - title: Création d'un volume cloud
+      url: "/aws/task_creating_cloud_volumes_for_aws.html"
+    - title: Montez un volume cloud
+      url: "/aws/task_mounting_cloud_volumes_for_aws.html"
+    - title: Modification d'un volume Cloud
+      url: "/aws/task_modifying_cloud_volumes_for_aws.html"
+    - title: Suppression d'un volume cloud
+      url: "/aws/task_deleting_cloud_volumes_for_aws.html"
+  - title: Gestion des copies Snapshot de volumes cloud
+    entries:
+    - title: Création d'un snapshot à la demande pour un volume cloud
+      url: "/aws/task_creating_on_demand_snapshots.html"
+    - title: Création ou modification d'une règle de snapshot
+      url: "/aws/task_creating_modifying_snapshot_policies.html"
+    - title: Désactivation d'une stratégie de snapshot
+      url: "/aws/task_disabling_snapshot_policy.html"
+    - title: Rétablissement d'un volume depuis un snapshot
+      url: "/aws/task_reverting_volume_to_snapshot.html"
+    - title: Suppression d'un snapshot
+      url: "/aws/task_deleting_snapshots.html"
+    - title: Restauration d'un snapshot sur un nouveau volume
+      url: "/aws/task_restoring_snapshots_to_new_volumes.html"
+  - title: Gestion des règles des export-policy
+    entries:
+    - title: Modification d'une règle d'export-policy
+      url: "/aws/task_modifying_export_policy_rules.html"
+    - title: Création de règles d'export-policy supplémentaires
+      url: "/aws/task_creating_additional_export_policy_rules.html"
+    - title: Suppression des règles d'export-policy
+      url: "/aws/task_deleting_export_policy_rules.html"
+  - title: Gestion de Cloud Sync pour les volumes cloud
+    entries:
+    - title: Création d'un courtier de données Cloud Sync
+      url: "/aws/task_creating_cloud_sync_data_broker.html"
+    - title: Création d'une relation Cloud Sync
+      url: "/aws/task_creating_cloud_sync_relationship.html"
+    - title: Modification de la planification Cloud Sync
+      url: "/aws/task_modifying_cloud_sync_schedule.html"
+    - title: Suppression d'une relation Cloud Sync
+      url: "/aws/task_deleting_cloud_sync_relationship.html"
+    - title: Suppression d'un courtier de données Cloud Sync
+      url: "/aws/task_deleting_cloud_sync_data_broker.html"
+  - title: API Cloud volumes
+    url: "/aws/reference_cloud_volume_apis.html"
+  - title: Référence
+    entries:
+    - title: Paramètres des groupes de sécurité AWS pour les serveurs Windows AD
+      url: "/aws/reference_security_groups_windows_ad_servers.html"
+    - title: Sélection du niveau de service approprié et de la capacité allouée
+      url: "/aws/reference_selecting_service_level_and_quota.html"
+  - title: Mentions légales
+    url: "/aws/reference_notices.html"

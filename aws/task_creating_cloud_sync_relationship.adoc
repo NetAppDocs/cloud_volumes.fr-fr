@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: aws/task_creating_cloud_sync_relationship.html 
+keywords: Cloud Volumes Service for AWS, Cloud Sync relationships, target, source 
+summary: Avec une relation Cloud Sync, vous synchronisez les données depuis et vers le volume cloud. 
+---
+= Création d'une relation Cloud Sync
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Avec une relation Cloud Sync, vous synchronisez les données depuis et vers le volume cloud.
+
+.Avant de commencer
+* Vous devez déjà disposer d'un courtier en données Cloud Sync.
++
+link:task_creating_cloud_sync_data_broker.html["Création d'un courtier de données Cloud Sync"]
+
+* L'adresse IP du courtier de données doit avoir été ajoutée à la export policy pour les volumes source et cible.
++
+L'export policy sur le volume cible doit autoriser l'accès en écriture au courtier de données.
+
++
+link:task_creating_additional_export_policy_rules.html["Création de règles d'export-policy supplémentaires"]
+
+
+
+La fonctionnalité Cloud Sync intégrée à Cloud Volumes Service ne prend actuellement en charge que NFSv3. Si vous souhaitez synchroniser entre des volumes SMB, utilisez le https://cloudsync.netapp.com["Service Cloud Sync"^] directement (cloudsync.netapp.com).
+
+.Étapes
+. Accédez à la page Sync ou à l'onglet Sync d'un volume de la page volumes.
+. Créez une relation Cloud Sync en cliquant sur *Créer une nouvelle relation*.
+. Effectuer l'une des actions suivantes :
++
+** Pour synchroniser les données avec le volume, sélectionnez *utiliser le volume comme cible*.
+** Pour synchroniser les données du volume, sélectionnez *utiliser le volume comme source*.
++
+image::diagram_creating_cloud_sync_relationship.png[Création d'une relation Cloud Sync]
+
+
+
+. Dans le champ *Host* (non renseigné), entrez l'adresse IP du serveur NFS à partir de lequel vous souhaitez effectuer la synchronisation ou la synchronisation.
++
+Au bout de quelques instants, une liste des exportations disponibles est automatiquement découverte.
+
+. Dans le champ *Exporter*, sélectionnez l'une des exportations disponibles.
+. (Facultatif) cochez la case *Supprimer les fichiers sur la cible lorsqu'ils sont supprimés de la source* si vous souhaitez supprimer les fichiers sur la cible lorsqu'ils sont supprimés de la source.
+. Cliquez sur *Créer relation*.
++
+L'état de la relation s'affiche et les champs de progression du fichier indiquent le nombre de fichiers copiés.
+
+
