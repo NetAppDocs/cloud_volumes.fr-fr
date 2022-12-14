@@ -65,7 +65,7 @@ Les API sont répertoriées par fonction, par exemple :
 
 == Utilisation des API Cloud volumes
 
-Cette section explique comment utiliser les API Cloud volumes. Ces exemples utilisent Curl à partir d'un shell Linux bash. Vous devez le remplacer `<api_url>`, `<api_key>`, et `<secret_key>` avec les valeurs enregistrées à partir de ,Recherche de l'URL de l'API, de la clé API et de la clé secrète.
+Cette section explique comment utiliser les API Cloud volumes. Ces exemples utilisent Curl à partir d'un shell Linux bash. Vous devez le remplacer `<api_url>`, `<api_key>`, et `<secret_key>` avec les valeurs enregistrées à partir de <<finding_urL_key_secretKey,Recherche de l'URL de l'API, de la clé API et de la clé secrète>>.
 
 
 

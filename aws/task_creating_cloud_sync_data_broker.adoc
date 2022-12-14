@@ -19,6 +19,7 @@ summary: NetApp Cloud Sync est intégré avec NetApp Cloud Volumes Service pour 
 [role="lead"]
 NetApp Cloud Sync est intégré avec NetApp Cloud Volumes Service pour AWS afin de permettre la synchronisation rapide des données sur NFS depuis ou vers un volume cloud. Un courtier en données Cloud Sync vous permet de créer une relation Cloud Sync pour la synchronisation des données.
 
+.Description de la tâche
 Si vous disposez déjà d'un courtier en données Cloud Sync dans le même cloud privé virtuel AWS (VPC) que vous utilisez pour votre compte Cloud volumes, vous pouvez ignorer cette tâche.
 
 https://docs.netapp.com/us-en/cloudsync/["Documentation NetApp Cloud Sync"^]
@@ -74,4 +75,5 @@ La création d'un courtier en données prend quelques minutes. Une fois le court
 
 
 
+.Une fois que vous avez terminé
 Passez à link:task_creating_cloud_sync_relationship.html["Création d'une relation Cloud Sync"].

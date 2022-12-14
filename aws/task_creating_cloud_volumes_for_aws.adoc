@@ -200,4 +200,5 @@ Une fois les interfaces et les autres composants réseau créés, le volume que 
 
 
 
+.Une fois que vous avez terminé
 Passez à link:task_mounting_cloud_volumes_for_aws.html["Montez un volume cloud"].

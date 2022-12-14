@@ -1075,4 +1075,12 @@
   <block id="397ff3bc347de43dbcde7cdb242690fe" category="sidebar">Gestion des règles des export-policy</block>
   <block id="ff2741973abb478532d388257d6165e5" category="sidebar">Gestion de Cloud Sync pour les volumes cloud</block>
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">Référence</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">Description de la tâche</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Une seule</block>
+  <block id="c80749c13f37ec972c42af5f90eaa12a" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Sélectionnez la région</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Deux</block>
+  <block id="628fe8fbd0c256e0b6ce576e0ddc189f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Créer le volume cloud</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Trois</block>
+  <block id="f1bb1d2fe3c2d83a71f39d3fdd1cba35" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Montez le volume cloud</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">Une fois que vous avez terminé</block>
 </blocks>

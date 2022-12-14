@@ -19,10 +19,12 @@ summary: 'Vous pouvez supprimer un courtier en données Cloud Sync qui n"est plu
 [role="lead"]
 Vous pouvez supprimer un courtier en données Cloud Sync qui n'est plus nécessaire.
 
+.Description de la tâche
 Cette tâche supprime le courtier en données des volumes cloud, mais ne supprime pas l'instance de courtier en données dans AWS.
 
 Pour supprimer l'instance de courtier de données dans AWS, vous devez accéder à la console AWS de votre compte, localiser l'instance EC2 du courtier par nom, et la clôturer si besoin.
 
+.Avant de commencer
 Toutes les relations Cloud Sync qui utilisent le courtier de données doivent avoir déjà été supprimées avant de pouvoir supprimer le courtier.
 
 link:task_deleting_cloud_sync_relationship.html["Suppression d'une relation Cloud Sync"]
